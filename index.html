@@ -3,15 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <title>Alpine + TypeScript Demo</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      .bg-gray-100 {
+        background-color: rgb(243 244 246);
+      }
+      .text-gray-800 {
+        color: rgb(31 41 55);
+      }
+    </style>
     <script type="module" src="./src/wrec-footer.js"></script>
     <script type="module" src="./src/wrec-header.ts"></script>
     <script type="module" src="./src/wrec-main.ts"></script>
     <script type="module" src="./src/wrec-modal.ts"></script>
     <script type="module" src="./src/wrec-product.ts"></script>
     <script type="module" src="./src/wrec-review.ts"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-
   <body class="bg-gray-100 text-gray-800">
     <wrec-main></wrec-main>
   </body>

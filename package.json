@@ -1,19 +1,14 @@
 {
-  "name": "alpine_demo",
-  "private": true,
-  "version": "0.0.0",
+  "name": "trammell-shop-wrec",
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "dev": "vite",
+    "preview": "vite preview",
+    "reinstall": "rm -rf node_modules && npm install"
   },
   "devDependencies": {
-    "@types/alpinejs": "^3.13.11",
     "typescript": "~5.8.3",
     "vite": "^7.1.0"
-  },
-  "dependencies": {
-    "alpinejs": "^3.14.9"
   }
 }
