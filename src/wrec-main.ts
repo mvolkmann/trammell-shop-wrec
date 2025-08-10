@@ -11,27 +11,8 @@ class WrecMain extends Wrec {
   };
 
   static css = css`
-    .bg-gray-100 {
-      background-color: rgb(243 244 246);
-    }
-    .max-w-4xl {
-      max-width: 56rem;
-    }
-    .mx-auto {
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .p-8 {
-      padding: 2rem;
-    }
-    .space-y-6 > :not([hidden]) ~ :not([hidden]) {
-      --tw-space-y-reverse: 0;
-      margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
-      margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
-    }
-    .text-gray-800 {
-      color: rgb(31 41 55);
-    }
+    @import "./public/my-tailwind.css";
+
     ul {
       list-style-type: none;
     }
