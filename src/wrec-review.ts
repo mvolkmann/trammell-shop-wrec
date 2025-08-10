@@ -1,4 +1,4 @@
-import Wrec, { html } from "./wrec";
+import Wrec, { css, html } from "./wrec";
 //import type { ProductReview } from "./types";
 
 class WrecReview extends Wrec {
@@ -6,29 +6,72 @@ class WrecReview extends Wrec {
     review: { type: Object, required: true },
   };
 
-  static css = `
-    /* Tailwind utilities used in this component */
-    .flex { display: flex; }
-    .items-start { align-items: flex-start; }
-    .gap-4 { gap: 1rem; }
-    .border { border-width: 1px; }
-    .border-gray-100 { border-color: rgb(243 244 246); }
-    .border-gray-200 { border-color: rgb(229 231 235); }
-    .rounded-lg { border-radius: 0.5rem; }
-    .rounded-full { border-radius: 9999px; }
-    .p-4 { padding: 1rem; }
-    .bg-gray-50 { background-color: rgb(249 250 251); }
-    .bg-white { background-color: rgb(255 255 255); }
-    .shadow-sm { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
-    .w-10 { width: 2.5rem; }
-    .h-10 { height: 2.5rem; }
-    .flex-shrink-0 { flex-shrink: 0; }
-    .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
-    .text-xs { font-size: 0.75rem; line-height: 1rem; }
-    .italic { font-style: italic; }
-    .text-gray-800 { color: rgb(31 41 55); }
-    .text-gray-500 { color: rgb(107 114 128); }
-    .mt-1 { margin-top: 0.25rem; }
+  static css = css`
+    .bg-gray-50 {
+      background-color: rgb(249 250 251);
+    }
+    .bg-white {
+      background-color: rgb(255 255 255);
+    }
+    .border {
+      border-width: 1px;
+    }
+    .border-gray-100 {
+      border-color: rgb(243 244 246);
+    }
+    .border-gray-200 {
+      border-color: rgb(229 231 235);
+    }
+    .flex {
+      display: flex;
+    }
+    .flex-shrink-0 {
+      flex-shrink: 0;
+    }
+    .gap-4 {
+      gap: 1rem;
+    }
+    .h-10 {
+      height: 2.5rem;
+    }
+    .italic {
+      font-style: italic;
+    }
+    .items-start {
+      align-items: flex-start;
+    }
+    .mt-1 {
+      margin-top: 0.25rem;
+    }
+    .p-4 {
+      padding: 1rem;
+    }
+    .rounded-full {
+      border-radius: 9999px;
+    }
+    .rounded-lg {
+      border-radius: 0.5rem;
+    }
+    .shadow-sm {
+      box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    }
+    .text-gray-500 {
+      color: rgb(107 114 128);
+    }
+    .text-gray-800 {
+      color: rgb(31 41 55);
+    }
+    .text-sm {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+    .text-xs {
+      font-size: 0.75rem;
+      line-height: 1rem;
+    }
+    .w-10 {
+      width: 2.5rem;
+    }
   `;
 
   static html = html`

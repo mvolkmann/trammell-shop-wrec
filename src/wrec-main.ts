@@ -1,4 +1,4 @@
-import Wrec, { html } from "./wrec";
+import Wrec, { css, html } from "./wrec";
 import type { Product, ProductReview } from "./types";
 
 import ProductJSON from "./products.json";
@@ -10,14 +10,31 @@ class WrecMain extends Wrec {
     reviews: { type: Array<ProductReview> },
   };
 
-  static css = `
-    ul { list-style-type: none; }
-    .bg-gray-100 { background-color: rgb(243 244 246); }
-    .text-gray-800 { color: rgb(31 41 55); }
-    .max-w-4xl { max-width: 56rem; }
-    .mx-auto { margin-left: auto; margin-right: auto; }
-    .p-8 { padding: 2rem; }
-    .space-y-6 > :not([hidden]) ~ :not([hidden]) { --tw-space-y-reverse: 0; margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse))); margin-bottom: calc(1.5rem * var(--tw-space-y-reverse)); }
+  static css = css`
+    .bg-gray-100 {
+      background-color: rgb(243 244 246);
+    }
+    .max-w-4xl {
+      max-width: 56rem;
+    }
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .p-8 {
+      padding: 2rem;
+    }
+    .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+      --tw-space-y-reverse: 0;
+      margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+      margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+    }
+    .text-gray-800 {
+      color: rgb(31 41 55);
+    }
+    ul {
+      list-style-type: none;
+    }
   `;
 
   static html = html`
@@ -28,11 +45,14 @@ class WrecMain extends Wrec {
           this.products.map(this.makeProduct.bind(this)).join('')
         </ul>
         <wrec-modal></wrec-modal>
-        <wrec-footer></wrec-footer>
       </main>
     </body>
   `;
 
+  /**
+   * Set the products property to the list of products defined in the products.json file.
+   * This is done once, when the component is connected to the DOM.
+   */
   connectedCallback(): void {
     super.connectedCallback();
     this.products = ProductJSON;

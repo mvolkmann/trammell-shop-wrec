@@ -7,7 +7,6 @@ class WrecProduct extends Wrec {
   };
 
   static css = css`
-    /* Tailwind utilities used in this component */
     .box-border {
       box-sizing: border-box;
     }
