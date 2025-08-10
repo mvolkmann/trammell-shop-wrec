@@ -12,7 +12,6 @@ class WrecMain extends Wrec {
 
   static css = css`
     @import "./public/my-tailwind.css";
-
     ul {
       list-style-type: none;
     }
