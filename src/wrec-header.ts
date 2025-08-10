@@ -72,8 +72,9 @@ class WrecHeader extends Wrec {
         </button>
         <span
           class="absolute -top-1 -right-1 bg-rose-600 text-white text-xs font-semibold rounded-full px-1.5 py-0.5 shadow"
-          >this.count</span
         >
+          this.count
+        </span>
       </div>
     </div>
   `;
