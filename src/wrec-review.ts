@@ -27,11 +27,6 @@ class WrecReview extends Wrec {
       </div>
     </li>
   `;
-
-  connectedCallback(): void {
-    super.connectedCallback();
-    console.log("wrec-review.ts connectedCallback: this.review =", this.review);
-  }
 }
 
 WrecReview.register();

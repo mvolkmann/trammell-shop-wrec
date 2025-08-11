@@ -494,7 +494,7 @@ class Wrec extends HTMLElement implements ChangeListener {
       if (!element.firstElementChild) this.#evaluateText(element);
     }
     /* These lines are useful for debugging.
-    if (this.constructor.name === "WrecMain") {
+    if (this.constructor.name === "WrecModal") {
       console.log("=== this.constructor.name =", this.constructor.name);
       console.log("propToExprsMap =", this.#ctor.propToExprsMap);
       console.log("#exprToRefsMap =", this.#exprToRefsMap);
@@ -528,6 +528,7 @@ class Wrec extends HTMLElement implements ChangeListener {
   #react(propName: string) {
     // Update all expression references.
     const ctor = this.#ctor;
+    const log = ctor.name === "WrecModal";
     const map = ctor.propToExprsMap;
     const exprs = map!.get(propName) || [];
     for (const expr of exprs) {

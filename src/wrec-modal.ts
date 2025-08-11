@@ -47,18 +47,10 @@ class WrecModal extends Wrec {
     </div>
   `;
 
-  connectedCallback(): void {
-    super.connectedCallback();
-    console.log(
-      "wrec-modal.ts connectedCallback: this.product =",
-      this.product
-    );
-  }
-
   makeReview(review: object) {
     const id = crypto.randomUUID();
     Wrec.idToPropertyMap.set(id, { review });
-    return html`<wrec-review id=${id} />`;
+    return html`<wrec-review id=${id}></wrec-review>`;
   }
 }
 
