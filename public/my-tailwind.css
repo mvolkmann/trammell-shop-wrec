@@ -118,6 +118,9 @@
 .leading-tight {
   line-height: 1.25;
 }
+.list-none {
+  list-style-type: none;
+}
 .m-0 {
   margin: 0;
 }

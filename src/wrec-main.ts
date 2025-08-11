@@ -13,9 +13,6 @@ class WrecMain extends Wrec {
 
   static css = css`
     @import "./public/my-tailwind.css";
-    ul {
-      list-style-type: none;
-    }
   `;
 
   static html = html`
@@ -26,7 +23,7 @@ class WrecMain extends Wrec {
         onopen-reviews="openReviews"
       >
         <wrec-header count="this.cart.length"></wrec-header>
-        <ul class="space-y-6">
+        <ul class="list-none space-y-6">
           this.products.map(this.makeProduct.bind(this)).join('')
         </ul>
         <wrec-modal
