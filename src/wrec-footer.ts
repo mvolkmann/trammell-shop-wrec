@@ -12,7 +12,7 @@ class WrecFooter extends Wrec {
   static html = html`
     <div class="mt-6 flex justify-end">
       <button
-        @click="this.open = false"
+        onclick="this.open = false"
         class="px-4 py-2 text-sm font-medium bg-rose-600 text-white rounded-full hover:bg-rose-700 transition shadow-sm"
         aria-label="Dismiss"
       >

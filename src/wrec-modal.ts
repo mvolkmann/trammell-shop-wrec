@@ -24,7 +24,7 @@ class WrecModal extends Wrec {
             </p>
           </div>
           <button
-            @click="open = false"
+            onclick="this.open = false"
             class="text-gray-400 hover:text-rose-500 text-xl font-bold"
             aria-label="Close"
           >
@@ -36,7 +36,7 @@ class WrecModal extends Wrec {
           this.reviews.map(this.makeReview.bind(this)).join('')
         </ul>
 
-        <wrec-footer></wrec-footer>
+        <wrec-footer open="this.open"></wrec-footer>
       </div>
     </div>
   `;

@@ -1,5 +1,4 @@
 import Wrec, { css, html } from "./wrec";
-//import type { Product } from "./types";
 
 class WrecProduct extends Wrec {
   static properties = {
@@ -34,7 +33,7 @@ class WrecProduct extends Wrec {
                 this.product.title
               </h2>
               <button
-                onclick="$dispatch('open-modal', {reviews: product.reviews, productName: product.title})"
+                onclick="openModal"
                 class="text-xs font-medium border border-rose-600 text-rose-600 bg-white px-3 py-1 rounded-full hover:bg-rose-50 transition shadow-sm"
               >
                 Reviews (<span>this.product.reviews.length</span>)
@@ -47,7 +46,7 @@ class WrecProduct extends Wrec {
           </div>
           <div class="mt-4 flex justify-end">
             <button
-              onclick="$dispatch('add-to-cart')"
+              onclick="addToCart"
               class="text-sm font-medium bg-rose-600 text-white px-4 py-2 rounded-full hover:bg-rose-700 transition shadow-sm"
             >
               Add to Cart
@@ -57,6 +56,28 @@ class WrecProduct extends Wrec {
       </div>
     </li>
   `;
+
+  addToCart() {
+    console.log("wrec-product.ts addToCart: entered");
+    this.dispatchEvent(
+      new CustomEvent("addToCart", {
+        detail: this.product,
+        bubbles: true,
+        composed: true,
+      })
+    );
+  }
+
+  openModal() {
+    console.log("wrec-product.ts openModal: entered");
+    this.dispatchEvent(
+      new CustomEvent("openModal", {
+        detail: this.product,
+        bubbles: true,
+        composed: true,
+      })
+    );
+  }
 }
 
 WrecProduct.register();

@@ -5,6 +5,7 @@ import ProductJSON from "./products.json";
 
 class WrecMain extends Wrec {
   static properties = {
+    open: { type: Boolean },
     cart: { type: Array<Product> },
     products: { type: Array<Product> },
     reviews: { type: Array<ProductReview> },
@@ -18,16 +19,26 @@ class WrecMain extends Wrec {
   `;
 
   static html = html`
-    <body class="bg-gray-100 text-gray-800" onOpenModal="open = true">
-      <main class="max-w-4xl mx-auto p-8" onAddToCart="count++">
+    <body class="bg-gray-100 text-gray-800">
+      <main
+        class="max-w-4xl mx-auto p-8"
+        onaddToCart="addToCart"
+        onopenModal="this.open = true"
+      >
         <wrec-header count="this.cart.length"></wrec-header>
         <ul class="space-y-6">
           this.products.map(this.makeProduct.bind(this)).join('')
         </ul>
-        <wrec-modal></wrec-modal>
+        <wrec-modal open="this.open"></wrec-modal>
       </main>
     </body>
   `;
+
+  addToCart(event: CustomEvent) {
+    console.log("wrec-main.ts addToCart: entered");
+    const { product } = event.detail;
+    this.cart = [...this.cart, product];
+  }
 
   /**
    * Set the products property to the list of products defined in the products.json file.
