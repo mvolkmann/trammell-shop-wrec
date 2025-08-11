@@ -12,9 +12,6 @@ class WrecModal extends Wrec {
       background-color: transparent;
       border: none;
     }
-    h3 {
-      margin: 0;
-    }
   `;
 
   static html = html`
@@ -24,8 +21,10 @@ class WrecModal extends Wrec {
       <div class="bg-white rounded-xl shadow-lg max-w-xl w-full p-6 relative">
         <div class="flex justify-between items-start mb-6">
           <div>
-            <h3 class="text-xl font-semibold text-gray-900">Reviews for:</h3>
-            <p class="text-lg font-medium text-rose-700 leading-tight">
+            <h3 class="text-xl font-semibold text-gray-900 m-0">
+              Reviews for:
+            </h3>
+            <p class="text-lg font-medium text-rose-700 leading-tight m-0">
               this.product.title
             </p>
           </div>
@@ -38,7 +37,7 @@ class WrecModal extends Wrec {
           </button>
         </div>
 
-        <ul class="space-y-4 max-h-80 overflow-y-auto pr-1">
+        <ul class="max-h-96 overflow-y-auto m-0 p-0">
           this.product.reviews?.map(this.makeReview.bind(this)).join('')
         </ul>
 

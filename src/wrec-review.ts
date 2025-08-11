@@ -12,7 +12,7 @@ class WrecReview extends Wrec {
 
   static html = html`
     <li
-      class="flex items-start gap-4 border border-gray-100 rounded-lg p-4 bg-gray-50 shadow-sm"
+      class="flex items-start gap-4 border border-gray-100 rounded-lg mb-4 p-4 bg-gray-50 shadow-sm"
     >
       <img
         src="'https://api.dicebear.com/7.x/croodles/svg?seed=' + this.review.reviewerName"
