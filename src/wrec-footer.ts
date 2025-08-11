@@ -1,4 +1,4 @@
-import Wrec, { css, html } from "./wrec";
+import Wrec, { css, html } from "./wrec.min.js";
 
 class WrecFooter extends Wrec {
   static properties = {

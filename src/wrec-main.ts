@@ -1,4 +1,4 @@
-import Wrec, { css, html } from "./wrec";
+import Wrec, { css, html } from "./wrec.min.js";
 import type { Product } from "./types";
 
 import ProductJSON from "./products.json";
