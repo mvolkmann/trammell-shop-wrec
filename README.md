@@ -2,7 +2,7 @@
 
 This is an alternative implementation of the web application
 written by Hunter Trammell at
-[alpine_demo](https://github.com/huntikins/alpine_demo_.
+[alpine_demo](https://github.com/huntikins/alpine_demo).
 It demonstrates using the
 [wrec](https://www.npmjs.com/package/wrec) library instead of Alpine.js.
 
