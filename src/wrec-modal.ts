@@ -8,10 +8,6 @@ class WrecModal extends Wrec {
 
   static css = css`
     @import "./public/my-tailwind.css";
-    button {
-      background-color: transparent;
-      border: none;
-    }
   `;
 
   static html = html`
@@ -30,7 +26,7 @@ class WrecModal extends Wrec {
           </div>
           <button
             onclick="this.open = false"
-            class="text-gray-400 hover:text-rose-500 text-xl font-bold"
+            class="text-gray-400 hover:text-rose-500 text-xl font-bold bg-transparent border-none"
             aria-label="Close"
           >
             &times;

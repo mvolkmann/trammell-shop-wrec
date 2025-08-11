@@ -47,7 +47,7 @@ class WrecProduct extends Wrec {
           <div class="mt-4 flex justify-end">
             <button
               onclick="this.dispatch('add-to-cart', this.product)"
-              class="text-sm font-medium bg-rose-600 text-white px-4 py-2 rounded-full hover:bg-rose-700 transition shadow-sm"
+              class="text-sm font-medium bg-rose-600 text-white px-4 py-2 rounded-full hover:bg-rose-700 transition shadow-sm border-none"
             >
               Add to Cart
             </button>
