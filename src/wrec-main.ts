@@ -61,10 +61,6 @@ class WrecMain extends Wrec {
 
   openReviews(event: CustomEvent) {
     this.selectedProduct = event.detail;
-    console.log(
-      "wrec-main.ts openReviews: this.selectedProduct =",
-      this.selectedProduct
-    );
     this.open = true;
   }
 }

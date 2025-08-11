@@ -3,7 +3,7 @@ import Wrec, { css, html } from "./wrec";
 
 class WrecReview extends Wrec {
   static properties = {
-    review: { type: Object, required: true },
+    review: { type: Object },
   };
 
   static css = css`

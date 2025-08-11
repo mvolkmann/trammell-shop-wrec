@@ -113,19 +113,25 @@ function updateAttribute(
   attrName: string,
   value: string | number | boolean
 ) {
-  if (!isPrimitive(value)) return;
-
-  const currentValue = element.getAttribute(attrName);
-  if (typeof value === "boolean") {
-    if (value) {
-      if (currentValue !== attrName) {
-        element.setAttribute(attrName, attrName);
+  // Attributes can only be set to primitive values.
+  if (isPrimitive(value)) {
+    // Set the attribute.
+    const currentValue = element.getAttribute(attrName);
+    if (typeof value === "boolean") {
+      if (value) {
+        if (currentValue !== attrName) {
+          element.setAttribute(attrName, attrName);
+        }
+      } else {
+        element.removeAttribute(attrName);
       }
-    } else {
-      element.removeAttribute(attrName);
+    } else if (currentValue !== value) {
+      element.setAttribute(attrName, String(value));
     }
-  } else if (currentValue !== value) {
-    element.setAttribute(attrName, String(value));
+  } else {
+    // Set the corresponding property.
+    const propName = Wrec.getPropName(attrName);
+    (element as Record<string, any>)[propName] = value;
   }
 }
 
@@ -488,13 +494,13 @@ class Wrec extends HTMLElement implements ChangeListener {
       if (!element.firstElementChild) this.#evaluateText(element);
     }
     /* These lines are useful for debugging.
-    if (this.constructor.name === 'DataBinding2') {
-      console.log('=== this.constructor.name =', this.constructor.name);
-      console.log('propToExprsMap =', this.#ctor.propToExprsMap);
-      console.log('#exprToRefsMap =', this.#exprToRefsMap);
-      console.log('propToComputedMap =', this.#ctor.propToComputedMap);
-      console.log('#propToParentPropMap =', this.#propToParentPropMap);
-      console.log('\n');
+    if (this.constructor.name === "WrecMain") {
+      console.log("=== this.constructor.name =", this.constructor.name);
+      console.log("propToExprsMap =", this.#ctor.propToExprsMap);
+      console.log("#exprToRefsMap =", this.#exprToRefsMap);
+      console.log("propToComputedMap =", this.#ctor.propToComputedMap);
+      console.log("#propToParentPropMap =", this.#propToParentPropMap);
+      console.log("\n");
     }
     */
   }
@@ -688,6 +694,8 @@ class Wrec extends HTMLElement implements ChangeListener {
 
     const ctor = this.#ctor;
     const { type } = ctor.properties[propName];
+    if (!type) this.#throw(null, propName, "does not specify its type");
+
     if (type === String) return stringValue;
     if (type === Number) return stringToNumber(stringValue);
     if (type === Boolean) {
@@ -703,7 +711,6 @@ class Wrec extends HTMLElement implements ChangeListener {
       }
       return stringValue === propName;
     }
-    this.#throw(null, propName, "does not specify its type");
   }
 
   // Updates the matching attribute for a property if there is one.
