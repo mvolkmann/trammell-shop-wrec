@@ -7,6 +7,9 @@ class WrecFooter extends Wrec {
 
   static css = css`
     @import "./public/my-tailwind.css";
+    button {
+      border: none;
+    }
   `;
 
   static html = html`

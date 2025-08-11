@@ -4,11 +4,17 @@ class WrecModal extends Wrec {
   static properties = {
     open: { type: Boolean },
     product: { type: Object },
-    reviews: { type: Array<object> },
   };
 
   static css = css`
     @import "./public/my-tailwind.css";
+    button {
+      background-color: transparent;
+      border: none;
+    }
+    h3 {
+      margin: 0;
+    }
   `;
 
   static html = html`
@@ -33,13 +39,21 @@ class WrecModal extends Wrec {
         </div>
 
         <ul class="space-y-4 max-h-80 overflow-y-auto pr-1">
-          this.reviews.map(this.makeReview.bind(this)).join('')
+          this.product.reviews?.map(this.makeReview.bind(this)).join('')
         </ul>
 
         <wrec-footer open="this.open"></wrec-footer>
       </div>
     </div>
   `;
+
+  connectedCallback(): void {
+    super.connectedCallback();
+    console.log(
+      "wrec-modal.ts connectedCallback: this.product =",
+      this.product
+    );
+  }
 
   makeReview(review: object) {
     return html`<wrec-review review=${review} />`;

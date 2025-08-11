@@ -876,7 +876,6 @@ class Wrec extends HTMLElement implements ChangeListener {
       for (const attr of Array.from(element.attributes)) {
         const attrName = attr.name;
         if (attrName.startsWith("on")) {
-          console.log("wrec.ts #wireEvents: attrName =", attrName);
           let eventName = attrName.slice(2);
           eventName =
             eventName[0].toLowerCase() + eventName.slice(1).toLowerCase();
@@ -891,7 +890,6 @@ class Wrec extends HTMLElement implements ChangeListener {
             // oxlint-disable-next-line no-eval no-unused-vars
             fn = () => this.#evaluateInContext(attrValue);
           }
-          console.log("wrec.ts #wireEvents: eventName =", eventName);
           element.addEventListener(eventName, fn);
           attributesToRemove.push(attrName);
         }
