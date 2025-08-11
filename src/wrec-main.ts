@@ -50,10 +50,9 @@ class WrecMain extends Wrec {
   }
 
   makeProduct(product: Product) {
-    const id = crypto.randomUUID();
-    Wrec.idToPropertyMap.set(id, { product });
-    // We can't set an attribute to an object value,
-    // so we put it in a map to be set later as a component property.
+    // We can't set an attribute to an object value, so we
+    // store it by id so it can be set later as a component property.
+    const id = Wrec.dataForId({ product });
     return html`<wrec-product id=${id}></wrec-product>`;
   }
 

@@ -43,8 +43,7 @@ class WrecModal extends Wrec {
   `;
 
   makeReview(review: object) {
-    const id = crypto.randomUUID();
-    Wrec.idToPropertyMap.set(id, { review });
+    const id = Wrec.dataForId({ review });
     return html`<wrec-review id=${id}></wrec-review>`;
   }
 }
