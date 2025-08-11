@@ -7,9 +7,6 @@ class WrecProduct extends Wrec {
 
   static css = css`
     @import "./public/my-tailwind.css";
-    p {
-      color: purple;
-    }
   `;
 
   static html = html`
