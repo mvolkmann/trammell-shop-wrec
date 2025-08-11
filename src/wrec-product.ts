@@ -58,25 +58,12 @@ class WrecProduct extends Wrec {
   `;
 
   addToCart() {
-    console.log("wrec-product.ts addToCart: entered");
-    this.dispatchEvent(
-      new CustomEvent("addToCart", {
-        detail: this.product,
-        bubbles: true,
-        composed: true,
-      })
-    );
+    this.dispatch("add-to-cart", this.product);
   }
 
   openModal() {
     console.log("wrec-product.ts openModal: entered");
-    this.dispatchEvent(
-      new CustomEvent("openModal", {
-        detail: this.product,
-        bubbles: true,
-        composed: true,
-      })
-    );
+    this.dispatch("open-modal", this.product);
   }
 }
 

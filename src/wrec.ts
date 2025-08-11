@@ -326,7 +326,7 @@ class Wrec extends HTMLElement implements ChangeListener {
         this.#updateParentProperty(propName, value);
         if (isPrimitive(value)) this.#setFormValue(propName, value);
         this.propertyChangedCallback(propName, oldValue, value);
-        if (config.dispatch) this.#dispatchChangeEvent(propName);
+        if (config.dispatch) this.dispatch("change", { propName });
       },
     });
   }
@@ -338,12 +338,12 @@ class Wrec extends HTMLElement implements ChangeListener {
     this.#stateToComponentPropertyMap.clear();
   }
 
-  #dispatchChangeEvent(propName: string) {
+  dispatch(name: string, detail: any) {
     this.dispatchEvent(
-      new CustomEvent("change", {
+      new CustomEvent(name, {
         bubbles: true, // up DOM tree
         composed: true, // can pass through shadow DOM
-        detail: { propName },
+        detail,
       })
     );
   }
@@ -876,7 +876,10 @@ class Wrec extends HTMLElement implements ChangeListener {
       for (const attr of Array.from(element.attributes)) {
         const attrName = attr.name;
         if (attrName.startsWith("on")) {
-          const eventName = attrName.slice(2).toLowerCase();
+          console.log("wrec.ts #wireEvents: attrName =", attrName);
+          let eventName = attrName.slice(2);
+          eventName =
+            eventName[0].toLowerCase() + eventName.slice(1).toLowerCase();
           const attrValue = attr.value;
           this.#validateExpression(element, attrName, attrValue);
 
@@ -888,6 +891,7 @@ class Wrec extends HTMLElement implements ChangeListener {
             // oxlint-disable-next-line no-eval no-unused-vars
             fn = () => this.#evaluateInContext(attrValue);
           }
+          console.log("wrec.ts #wireEvents: eventName =", eventName);
           element.addEventListener(eventName, fn);
           attributesToRemove.push(attrName);
         }

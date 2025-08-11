@@ -22,8 +22,8 @@ class WrecMain extends Wrec {
     <body class="bg-gray-100 text-gray-800">
       <main
         class="max-w-4xl mx-auto p-8"
-        onaddToCart="addToCart"
-        onopenModal="this.open = true"
+        onadd-to-cart="addToCart"
+        onopen-modal="this.open = true"
       >
         <wrec-header count="this.cart.length"></wrec-header>
         <ul class="space-y-6">
@@ -35,7 +35,6 @@ class WrecMain extends Wrec {
   `;
 
   addToCart(event: CustomEvent) {
-    console.log("wrec-main.ts addToCart: entered");
     const { product } = event.detail;
     this.cart = [...this.cart, product];
   }
