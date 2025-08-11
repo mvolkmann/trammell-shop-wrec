@@ -14,7 +14,7 @@ and browsing http://localhost:5173/.
 ## 🛠 Technologies Used
 
 - HTML
-- [Tailwind CSS](https://tailwindcss.com/) via CDN
+- [Tailwind CSS](https://tailwindcss.com/) via copying used classes
 - TypeScript
 - JSON
 - [wrec](https://www.npmjs.com/package/wrec) downloaded and added to project
