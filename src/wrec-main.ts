@@ -19,8 +19,8 @@ class WrecMain extends Wrec {
     <body class="bg-gray-100 text-gray-800">
       <main
         class="max-w-4xl mx-auto p-8"
-        onadd-to-cart="addToCart"
-        onopen-reviews="openReviews"
+        onAdd-to-cart="addToCart"
+        onOpen-reviews="openReviews"
       >
         <wrec-header count="this.cart.length"></wrec-header>
         <ul class="list-none space-y-6">

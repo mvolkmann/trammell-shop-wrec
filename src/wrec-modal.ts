@@ -25,7 +25,7 @@ class WrecModal extends Wrec {
             </p>
           </div>
           <button
-            onclick="this.open = false"
+            onClick="this.open = false"
             class="text-gray-400 hover:text-rose-500 text-xl font-bold bg-transparent border-none"
             aria-label="Close"
           >

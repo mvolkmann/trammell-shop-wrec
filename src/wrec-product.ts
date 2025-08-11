@@ -30,7 +30,7 @@ class WrecProduct extends Wrec {
                 this.product.title
               </h2>
               <button
-                onclick="this.dispatch('open-reviews', this.product)"
+                onClick="this.dispatch('open-reviews', this.product)"
                 class="text-xs font-medium border border-rose-600 text-rose-600 bg-white px-3 py-1 rounded-full hover:bg-rose-50 transition shadow-sm"
               >
                 Reviews (<span>this.product.reviews.length</span>)
@@ -43,7 +43,7 @@ class WrecProduct extends Wrec {
           </div>
           <div class="mt-4 flex justify-end">
             <button
-              onclick="this.dispatch('add-to-cart', this.product)"
+              onClick="this.dispatch('add-to-cart', this.product)"
               class="text-sm font-medium bg-rose-600 text-white px-4 py-2 rounded-full hover:bg-rose-700 transition shadow-sm border-none"
             >
               Add to Cart
