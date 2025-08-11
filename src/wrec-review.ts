@@ -1,5 +1,4 @@
 import Wrec, { css, html } from "./wrec";
-//import type { ProductReview } from "./types";
 
 class WrecReview extends Wrec {
   static properties = {

@@ -40,7 +40,8 @@ class WrecMain extends Wrec {
   }
 
   /**
-   * Set the products property to the list of products defined in the products.json file.
+   * Set the products property to the list of products
+   * defined in the products.json file.
    * This is done once, when the component is connected to the DOM.
    */
   connectedCallback(): void {
